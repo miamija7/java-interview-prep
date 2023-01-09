@@ -1,22 +1,22 @@
 public class LongestCommonPrefix {
     public static String solve(String[] strs) {
-        String startStr = strs[0];
-        int maxPrefix = 0;
+        int maxPrefix = strs[0].length();
 
         for (int i = 1; i < strs.length; i++){
-            int currentPrefix = 0;
-            int max = (startStr.length() <=  strs[i].length()) ? startStr.length() : strs[i].length();
+            int prefixCount = 0;
+            int max = (strs[0].length() <=  strs[i].length()) ? strs[0].length() : strs[i].length();
 
-            for(int j = 0; j < max; j++){
-                if(startStr.substring(0, j).equals(strs[i].substring(0, j))){
-                    currentPrefix = j;
+            for(int j = 0; j <= max; j++){
+                if(strs[0].substring(0, j).equals(strs[i].substring(0, j))){
+                    prefixCount = j;
                 }
             }
 
-            if (i == 1 || currentPrefix < maxPrefix) {
-                maxPrefix = currentPrefix;
+            if (prefixCount <= maxPrefix) {
+                maxPrefix = prefixCount;
             }
         }
-        return startStr.substring(0, maxPrefix);
+
+        return strs[0].substring(0, maxPrefix);
     }
 }
