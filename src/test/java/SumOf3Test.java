@@ -23,5 +23,4 @@ public class SumOf3Test {
 
         assertEquals(answer, SumOf3.solve(args));
     }
-
 }
